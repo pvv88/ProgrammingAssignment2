@@ -28,10 +28,14 @@ cacheSolve <- function(x, ...) {
         return(invm)
     }
     
-    matx.data = x$getm()
-    inv = solve(matx.data, ...)
+    data = x$getm()
+    inv = solve(data, ...)
     
     x$setinv(invm)
-    
     return(invm)
 }
+
+
+x = rbind(c(1, -1/4), c(-1/4, 1))
+m = makeCacheMatrix(x)
+m$getm()
