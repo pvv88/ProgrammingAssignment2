@@ -24,7 +24,7 @@ cacheSolve <- function(x, ...) {
     invm = x$getinv()
     
     if (!is.null(invm)){
-        message("caching data..")
+        message("cached data..")
         return(invm)
     }
     
@@ -34,3 +34,28 @@ cacheSolve <- function(x, ...) {
     x$setinv(invm)
     return(invm)
 }
+
+## function results
+#matrix <- makeCacheMatrix(matrix(1:4,2,2))
+#> matrix$getm()
+#[,1] [,2]
+#[1,]    1    3
+#[2,]    2    4
+#> matrix$getinv()
+#NULL
+#> cacheSolve(matrix)
+#[,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+#> cacheSolve(matrix)
+#cached data..
+#[,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+#> matrix$getinv()
+#[,1] [,2]
+#[1,]   -2  1.5
+#[2,]    1 -0.5
+
+
+
